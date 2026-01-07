@@ -1,0 +1,18 @@
+{
+"geometry_file": "geometry/atlas-emec-athena.gdml",
+"event_file": "primaries/primaries_full_detector.root",
+"physics_options": {
+    "coulomb_scattering": false,
+    "eloss_fluctuation": true,
+    "em_bins_per_decade": 56,
+    "lpm": true,
+    "msc": "none",
+    "rayleigh_scattering": true,
+    "msc_step_algorithm": "minimal"
+},
+"initializer_capacity": 1e6,
+"num_tracks_slots": 8192,
+"max_steps": 1e8,
+"secondary_stack_factor": 3.0,
+"use_device" : true
+}
