@@ -1,0 +1,16 @@
+{
+"geometry_file": "testem3-composite.gdml",
+"event_file": "offload.root",
+"physics_options": {
+    "coulomb_scattering": false,
+    "eloss_fluctuation": true,
+    "em_bins_per_decade": 56,
+    "lpm": true,
+    "msc": "none",
+    "rayleigh_scattering": true},
+"initializer_capacity": 1e6,
+"num_tracks_slots": 8192,
+"max_steps": 1e8,
+"secondary_stack_factor": 3.0,
+"use_device" : false
+}

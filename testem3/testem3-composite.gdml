@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!-- SPDX-FileCopyrightText: 2022 CERN -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+    <position />
+    <position />
+  </define>
+
+  <materials>
+    <isotope N="16" Z="8" name="O160xa313e0">
+      <atom unit="g/mole" value="15.9949"/>
+    </isotope>
+    <isotope N="17" Z="8" name="O170xa31430">
+      <atom unit="g/mole" value="16.9991"/>
+    </isotope>
+    <isotope N="18" Z="8" name="O180xa31480">
+      <atom unit="g/mole" value="17.9992"/>
+    </isotope>
+    <element name="O0xa31500">
+      <fraction n="0.99757" ref="O160xa313e0"/>
+      <fraction n="0.00038" ref="O170xa31430"/>
+      <fraction n="0.00205" ref="O180xa31480"/>
+    </element>
+    <isotope N="204" Z="82" name="Pb2040xa316a0">
+      <atom unit="g/mole" value="203.973"/>
+    </isotope>
+    <isotope N="206" Z="82" name="Pb2060xa30c20">
+      <atom unit="g/mole" value="205.974"/>
+    </isotope>
+    <isotope N="207" Z="82" name="Pb2070xa316f0">
+      <atom unit="g/mole" value="206.976"/>
+    </isotope>
+    <isotope N="208" Z="82" name="Pb2080xa31740">
+      <atom unit="g/mole" value="207.977"/>
+    </isotope>
+    <element name="Pb0xa31790">
+      <fraction n="0.014" ref="Pb2040xa316a0"/>
+      <fraction n="0.241" ref="Pb2060xa30c20"/>
+      <fraction n="0.221" ref="Pb2070xa316f0"/>
+      <fraction n="0.524" ref="Pb2080xa31740"/>
+    </element>
+    <isotope N="180" Z="74" name="W1800xa31a60">
+      <atom unit="g/mole" value="179.947"/>
+    </isotope>
+    <isotope N="182" Z="74" name="W1820xa31ab0">
+      <atom unit="g/mole" value="181.948"/>
+    </isotope>
+    <isotope N="183" Z="74" name="W1830xa31b00">
+      <atom unit="g/mole" value="182.95"/>
+    </isotope>
+    <isotope N="184" Z="74" name="W1840xa31b50">
+      <atom unit="g/mole" value="183.951"/>
+    </isotope>
+    <isotope N="186" Z="74" name="W1860xa31ba0">
+      <atom unit="g/mole" value="185.954"/>
+    </isotope>
+    <element name="W0xa31c40">
+      <fraction n="0.0012" ref="W1800xa31a60"/>
+      <fraction n="0.265" ref="W1820xa31ab0"/>
+      <fraction n="0.1431" ref="W1830xa31b00"/>
+      <fraction n="0.3064" ref="W1840xa31b50"/>
+      <fraction n="0.2843" ref="W1860xa31ba0"/>
+    </element>
+    <material name="PbWO4" state="solid">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="542.741490086332"/>
+      <D unit="g/cm3" value="8.28"/>
+      <fraction n="0.140636619459073" ref="O0xa31500"/>
+      <fraction n="0.455365761223232" ref="Pb0xa31790"/>
+      <fraction n="0.403997619317694" ref="W0xa31c40"/>
+    </material>
+    <isotope N="36" Z="18" name="Ar360xa2eff0">
+      <atom unit="g/mole" value="35.9675"/>
+    </isotope>
+    <isotope N="38" Z="18" name="Ar380xa30b80">
+      <atom unit="g/mole" value="37.9627"/>
+    </isotope>
+    <isotope N="40" Z="18" name="Ar400xa30bd0">
+      <atom unit="g/mole" value="39.9624"/>
+    </isotope>
+    <element name="Ar0xa30c70">
+      <fraction n="0.003365" ref="Ar360xa2eff0"/>
+      <fraction n="0.000632" ref="Ar380xa30b80"/>
+      <fraction n="0.996003" ref="Ar400xa30bd0"/>
+    </element>
+    <material name="lAr" state="liquid">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="188"/>
+      <D unit="g/cm3" value="1.396"/>
+      <fraction n="1" ref="Ar0xa30c70"/>
+    </material>
+    <isotope N="1" Z="1" name="H10xa291a0">
+      <atom unit="g/mole" value="1.00782503081372"/>
+    </isotope>
+    <isotope N="2" Z="1" name="H20xa29210">
+      <atom unit="g/mole" value="2.01410199966617"/>
+    </isotope>
+    <element name="H0xa29280">
+      <fraction n="0.999885" ref="H10xa291a0"/>
+      <fraction n="0.000115" ref="H20xa29210"/>
+    </element>
+    <material name="vacuum" state="gas">
+      <T unit="K" value="2.73"/>
+      <P unit="pascal" value="3e-18"/>
+      <MEE unit="eV" value="21.8"/>
+      <D unit="g/cm3" value="1e-25"/>
+      <fraction n="1" ref="H0xa29280"/>
+    </material>
+  </materials>
+
+  <solids>
+    <box lunit="mm" name="gapBox" x="2.3" y="400" z="400"/>
+    <box lunit="mm" name="absorberBox" x="5.7" y="400" z="400"/>
+    <box lunit="mm" name="layerBox" x="8" y="400" z="400"/>
+    <box lunit="mm" name="calorimeterBox" x="400" y="400" z="400"/>
+    <box lunit="mm" name="worldBox" x="480" y="480" z="480"/>
+  </solids>
+
+  <structure>
+    <volume name="Gap">
+      <materialref ref="PbWO4"/>
+      <solidref ref="gapBox"/>
+      <auxiliary auxtype="gammaECut" auxunit="MeV" auxvalue="0.0757749"/>
+      <auxiliary auxtype="electronECut" auxunit="MeV" auxvalue="0.842468"/>
+      <auxiliary auxtype="positronECut" auxunit="MeV" auxvalue="0.797806"/>
+      <auxiliary auxtype="protonECut" auxunit="MeV" auxvalue="0.07"/>
+      <auxiliary auxtype="SensDet" auxvalue="sd_gap"/>
+    </volume>
+    <volume name="Absorber">
+      <materialref ref="lAr"/>
+      <solidref ref="absorberBox"/>
+      <auxiliary auxtype="gammaECut" auxunit="MeV" auxvalue="0.00520503"/>
+      <auxiliary auxtype="electronECut" auxunit="MeV" auxvalue="0.273977"/>
+      <auxiliary auxtype="positronECut" auxunit="MeV" auxvalue="0.26618"/>
+      <auxiliary auxtype="protonECut" auxunit="MeV" auxvalue="0.07"/>
+      <auxiliary auxtype="SensDet" auxvalue="sd_absorber"/>
+    </volume>
+    <volume name="Layer">
+      <materialref ref="vacuum"/>
+      <solidref ref="layerBox"/>
+      <physvol copynumber="1" name="Gap">
+        <volumeref ref="Gap"/>
+        <position name="gap_pos" unit="mm" x="-2.85" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="2" name="Absorber">
+        <volumeref ref="Absorber"/>
+        <position name="absorber_pos" unit="mm" x="1.15" y="0" z="0"/>
+      </physvol>
+    </volume>
+    <volume name="Calorimeter">
+      <materialref ref="vacuum"/>
+      <solidref ref="calorimeterBox"/>
+      <physvol copynumber="1" name="Layer0x560dcd38d7b0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38d7b0_pos" unit="mm" x="-196" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="2" name="Layer0x560dcd38d8c0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38d8c0_pos" unit="mm" x="-188" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="3" name="Layer0x560dcd38d970">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38d970_pos" unit="mm" x="-180" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="4" name="Layer0x560dcd38da60">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38da60_pos" unit="mm" x="-172" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="5" name="Layer0x560dcd38daf0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38daf0_pos" unit="mm" x="-164" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="6" name="Layer0x560dcd38dc20">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38dc20_pos" unit="mm" x="-156" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="7" name="Layer0x560dcd38dc80">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38dc80_pos" unit="mm" x="-148" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="8" name="Layer0x560dcd38dce0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38dce0_pos" unit="mm" x="-140" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="9" name="Layer0x560dcd38dd70">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38dd70_pos" unit="mm" x="-132" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="10" name="Layer0x560dcd38df20">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38df20_pos" unit="mm" x="-124" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="11" name="Layer0x560dcd38dfb0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38dfb0_pos" unit="mm" x="-116" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="12" name="Layer0x560dcd38e040">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e040_pos" unit="mm" x="-108" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="13" name="Layer0x560dcd38e0d0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e0d0_pos" unit="mm" x="-100" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="14" name="Layer0x560dcd38e160">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e160_pos" unit="mm" x="-92" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="15" name="Layer0x560dcd38e1f0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e1f0_pos" unit="mm" x="-84" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="16" name="Layer0x560dcd38e280">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e280_pos" unit="mm" x="-76" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="17" name="Layer0x560dcd38e310">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e310_pos" unit="mm" x="-68" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="18" name="Layer0x560dcd38e4b0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e4b0_pos" unit="mm" x="-60" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="19" name="Layer0x560dcd38e540">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e540_pos" unit="mm" x="-52" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="20" name="Layer0x560dcd38e5d0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e5d0_pos" unit="mm" x="-44" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="21" name="Layer0x560dcd38e660">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e660_pos" unit="mm" x="-36" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="22" name="Layer0x560dcd38e6f0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e6f0_pos" unit="mm" x="-28" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="23" name="Layer0x560dcd38e780">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e780_pos" unit="mm" x="-20" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="24" name="Layer0x560dcd38e810">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e810_pos" unit="mm" x="-12" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="25" name="Layer0x560dcd38e8a0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e8a0_pos" unit="mm" x="-4" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="26" name="Layer0x560dcd38e930">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e930_pos" unit="mm" x="4" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="27" name="Layer0x560dcd38e9c0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38e9c0_pos" unit="mm" x="12" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="28" name="Layer0x560dcd38ea50">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38ea50_pos" unit="mm" x="20" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="29" name="Layer0x560dcd38eae0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38eae0_pos" unit="mm" x="28" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="30" name="Layer0x560dcd38eb70">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38eb70_pos" unit="mm" x="36" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="31" name="Layer0x560dcd38ec00">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38ec00_pos" unit="mm" x="44" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="32" name="Layer0x560dcd38ec90">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38ec90_pos" unit="mm" x="52" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="33" name="Layer0x560dcd38ed20">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38ed20_pos" unit="mm" x="60" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="34" name="Layer0x560dcd38edb0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38edb0_pos" unit="mm" x="68" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="35" name="Layer0x560dcd38ee40">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38ee40_pos" unit="mm" x="76" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="36" name="Layer0x560dcd38eed0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38eed0_pos" unit="mm" x="84" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="37" name="Layer0x560dcd38ef60">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38ef60_pos" unit="mm" x="92" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="38" name="Layer0x560dcd38eff0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38eff0_pos" unit="mm" x="100" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="39" name="Layer0x560dcd38f080">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38f080_pos" unit="mm" x="108" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="40" name="Layer0x560dcd38f110">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38f110_pos" unit="mm" x="116" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="41" name="Layer0x560dcd38f1a0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38f1a0_pos" unit="mm" x="124" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="42" name="Layer0x560dcd38f230">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38f230_pos" unit="mm" x="132" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="43" name="Layer0x560dcd38f2c0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38f2c0_pos" unit="mm" x="140" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="44" name="Layer0x560dcd38f350">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38f350_pos" unit="mm" x="148" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="45" name="Layer0x560dcd38f3e0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38f3e0_pos" unit="mm" x="156" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="46" name="Layer0x560dcd38f470">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38f470_pos" unit="mm" x="164" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="47" name="Layer0x560dcd38f500">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38f500_pos" unit="mm" x="172" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="48" name="Layer0x560dcd38f590">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38f590_pos" unit="mm" x="180" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="49" name="Layer0x560dcd38f620">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38f620_pos" unit="mm" x="188" y="0" z="0"/>
+      </physvol>
+      <physvol copynumber="50" name="Layer0x560dcd38f6b0">
+        <volumeref ref="Layer"/>
+        <position name="Layer0x560dcd38f6b0_pos" unit="mm" x="196" y="0" z="0"/>
+      </physvol>
+    </volume>
+    <volume name="World">
+      <materialref ref="vacuum"/>
+      <solidref ref="worldBox"/>
+      <physvol name="Calorimeter">
+        <volumeref ref="Calorimeter"/>
+      </physvol>
+    </volume>
+  </structure>
+
+  <userinfo>
+    <auxiliary auxtype="Region" auxvalue="caloregion">
+      <auxiliary auxtype="volume" auxvalue="Calorimeter"/>
+      <auxiliary auxtype="gamcut" auxunit="mm" auxvalue="0.7"/>
+      <auxiliary auxtype="ecut" auxunit="mm" auxvalue="0.7"/>
+      <auxiliary auxtype="poscut" auxunit="mm" auxvalue="0.7"/>
+      <auxiliary auxtype="pcut" auxunit="mm" auxvalue="0.7"/>
+    </auxiliary>
+  </userinfo>
+
+  <setup name="Default" version="1.0">
+    <world ref="World"/>
+  </setup>
+
+</gdml>

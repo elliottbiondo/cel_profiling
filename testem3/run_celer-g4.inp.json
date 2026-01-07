@@ -1,0 +1,22 @@
+{
+"geometry_file": "testem3-composite.gdml",
+"physics_options": {
+    "coulomb_scattering": false,
+    "eloss_fluctuation": true,
+    "em_bins_per_decade": 56,
+    "lpm": true,
+    "msc": "none",
+    "rayleigh_scattering": true},
+"primary_options": {
+    "pdg": 11,
+    "position": [-22, 0, 0],
+    "direction": [1, 0, 0],
+    "energy": 1e4,
+    "num_events": 100,
+    "primaries_per_event": 10},
+"offload_output_file": "offload.root",
+"initializer_capacity": 1e6,
+"num_track_slots": 8192,
+"max_steps": 1e8,
+"secondary_stack_factor": 3.0
+}
