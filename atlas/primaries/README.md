@@ -12,9 +12,10 @@ The primaries_full_detector.root file was created using the `primary-converter` 
 
 ../opt/celeritas/utils/primaries-converter/convert primaries_full_detector.jsonl
 
-An example of reading these files in found in reader.C, which you can run via:
 
-root reader.C
+An example of reading these files in found in make_csv.C, which you can run via:
+
+root make_csv.C
 
 Then exiting with .q
 

@@ -1,0 +1,22 @@
+The file atlas-full-run4_LArEndcapNeg0x6cd79ea0.gdml was created with the command:
+
+gdml-subset atlas-full-run4.gdml LArEndcapNeg0x6cd79ea0 10000 atlas-full-run4_LArEndcapNeg0x6cd79ea0.gdml
+
+The world volume for atlas-full-run4_LArEndcapNeg0x6cd79ea0 is defined by: 
+
+    <polycone aunit="deg" deltaphi="360" lunit="mm" name="G4Polycone0x65cbe210" startphi="0">
+      <zplane rmax="1000" rmin="47" z="-3189"/>
+      <zplane rmax="1000" rmin="47" z="-3185"/>
+      <zplane rmax="2260" rmin="130" z="-3185"/>
+      <zplane rmax="2260" rmin="130" z="-2262"/>
+      <zplane rmax="2260" rmin="65" z="-2262"/>
+      <zplane rmax="2260" rmin="65" z="-2147"/>
+      <zplane rmax="2260" rmin="47" z="-2147"/>
+      <zplane rmax="2260" rmin="47" z="-542"/>
+      <zplane rmax="2506" rmin="47" z="-542"/>
+      <zplane rmax="2506" rmin="47" z="-498.1"/>
+      <zplane rmax="3795" rmin="47" z="-498.1"/>
+      <zplane rmax="3795" rmin="47" z="12"/>
+      <zplane rmax="410" rmin="47" z="12"/>
+      <zplane rmax="410" rmin="47" z="46"/>
+    </polycone>
