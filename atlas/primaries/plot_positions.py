@@ -33,19 +33,15 @@ def main() -> int:
     xyz = load_xyz(path)
     x, y, z = xyz[:, 0], xyz[:, 1], xyz[:, 2]
     
-    x /= 1000
-    y /= 1000
-    z /= 1000
-
     fig = plt.figure()
     ax = fig.add_subplot(111, projection="3d")
 
     # For large point clouds, use a small marker size
     ax.scatter(x, y, z, s=1)
 
-    ax.set_xlabel("x (m)")
-    ax.set_ylabel("y (m)")
-    ax.set_zlabel("z (m)")
+    ax.set_xlabel("x (cm)")
+    ax.set_ylabel("y (cm)")
+    ax.set_zlabel("z (cm)")
 
     # Optional: make axes roughly equal scale (matplotlib doesn't do this by default)
     mins = xyz.min(axis=0)

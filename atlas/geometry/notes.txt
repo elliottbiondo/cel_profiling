@@ -1,6 +1,6 @@
 The file atlas-full-run4_LArEndcapNeg0x6cd79ea0.gdml was created with the command:
 
-gdml-subset atlas-full-run4.gdml LArEndcapNeg0x6cd79ea0 10000 atlas-full-run4_LArEndcapNeg0x6cd79ea0.gdml
+~/opt/celeritas/utils/gdml-subset/build/gdml-subset/gdml-subset atlas-full-run4.gdml LArEndcapNeg0x6cd79ea0 10000 atlas-full-run4_LArEndcapNeg0x6cd79ea0.gdml
 
 The world volume for atlas-full-run4_LArEndcapNeg0x6cd79ea0 is defined by: 
 

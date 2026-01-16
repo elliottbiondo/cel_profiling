@@ -4,15 +4,14 @@ primaries_full_detector.jsonl was originally:
 
 mc23_13p6TeV.601229.PhPy8EG_A14_ttbar_hdamp258p75_SingleLep.celeritas_Primaries.HITS.pool.root.jsonl
 
-from Julien. Julien says that this is "a dump of EM primaries offloaded to
-Celeritas from 10 ttbar events". In this version, the full ATLAS detector
-geometry was present.
+from Julien. It contains EM primaries offloaded to Celeritas from 10 ttbar events". These were generated witn the full ATLAS detector
+geometry present. The units for position are mm, NOT cm.
 
 The primaries_LArEndcapNeg0x6cd79ea0.root file was created using the `primary-converter` tool in the `utils` repo on `celeritas-project`. The file:
 
 ~/opt/celeritas/utils/primaries-converter/src/JsonEventReader.cc
 
-was was modified to ONLY reader particles born in the world volume of atlas-full-run4_LArEndcapNeg0x6cd79ea0.gdml:
+was was modified to 1) ONLY reader particles born in the world volume of atlas-full-run4_LArEndcapNeg0x6cd79ea0.gdml, and 2) convert to cm:
 
         auto [x, y, z] = p.position;
         auto r = std::hypot(x, y);
@@ -22,6 +21,9 @@ was was modified to ONLY reader particles born in the world volume of atlas-full
             z > -498.1 && z < 12     && r < 3795 ||
             z > 12     && z < 46     && r < 47)
         {
+            p.position[0] /= 10;
+            p.position[1] /= 10;
+            p.position[2] /= 10;
             result.push_back(std::move(p));
         }
 
@@ -29,9 +31,7 @@ The following command was then run:
 
 ~/opt/celeritas/utils/primaries-converter/convert primaries_full_detector.jsonl -o primaries_LArEndcapNeg0x6cd79ea0.root
 
-
-
-An example of reading these files in found in make_csv.C, which you can run via:
+In order to convert to csv for plotting, use make_csv.C, which you can run via:
 
 root make_csv.C
 
