@@ -11,7 +11,7 @@ void make_csv()
 {
     // Open ROOT file and load its "primaries" tree
     //auto* file = TFile::Open("primaries_full_detector.root", "read");
-    auto* file = TFile::Open("first_event.root", "read");
+    auto* file = TFile::Open("primaries_LArEndcapNeg0x6cd79ea0.root", "read");
     auto* primaries_tree = file->Get<TTree>("primaries");
 
     // Set up local variables associated to the root tree branches
@@ -33,7 +33,7 @@ void make_csv()
     primaries_tree->SetBranchAddress("time", &time);
 
 
-    std::ofstream out("first_event.csv");
+    std::ofstream out("primaries_LArEndcapNeg0x6cd79ea0.csv");
 
     // Loop over all entries in the tree; Each entry is one particle
     for (auto i = 0; i < primaries_tree->GetEntries(); ++i)
