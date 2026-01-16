@@ -17,6 +17,27 @@ The world volume for atlas-full-run4_LArEndcapNeg0x6cd79ea0 is defined by:
       <zplane rmax="2506" rmin="47" z="-498.1"/>
       <zplane rmax="3795" rmin="47" z="-498.1"/>
       <zplane rmax="3795" rmin="47" z="12"/>
-      <zplane rmax="410" rmin="47" z="12"/>
-      <zplane rmax="410" rmin="47" z="46"/>
+      <zplane rmax="410"  rmin="47" z="12"/>
+      <zplane rmax="410"  rmin="47" z="46"/>
     </polycone>
+
+Or order to define the material in the excluded region along the beam line
+(as air), this was changed by simply zeroing-out rmin:
+
+    <polycone aunit="deg" deltaphi="360" lunit="mm" name="G4Polycone0x65cbe210" startphi="0">
+      <zplane rmax="1000" rmin="0" z="-3189"/>
+      <zplane rmax="1000" rmin="0" z="-3185"/>
+      <zplane rmax="2260" rmin="0" z="-3185"/>
+      <zplane rmax="2260" rmin="0" z="-2262"/>
+      <zplane rmax="2260" rmin="0" z="-2262"/>
+      <zplane rmax="2260" rmin="0" z="-2147"/>
+      <zplane rmax="2260" rmin="0" z="-2147"/>
+      <zplane rmax="2260" rmin="0" z="-542"/>
+      <zplane rmax="2506" rmin="0" z="-542"/>
+      <zplane rmax="2506" rmin="0" z="-498.1"/>
+      <zplane rmax="3795" rmin="0" z="-498.1"/>
+      <zplane rmax="3795" rmin="0" z="12"/>
+      <zplane rmax="410"  rmin="0" z="12"/>
+      <zplane rmax="410"  rmin="0" z="46"/>
+    </polycone>
+

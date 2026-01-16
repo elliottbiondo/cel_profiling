@@ -10,7 +10,6 @@
 void make_csv()
 {
     // Open ROOT file and load its "primaries" tree
-    //auto* file = TFile::Open("primaries_full_detector.root", "read");
     auto* file = TFile::Open("primaries_LArEndcapNeg0x6cd79ea0.root", "read");
     auto* primaries_tree = file->Get<TTree>("primaries");
 
