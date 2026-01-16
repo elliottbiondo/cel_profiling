@@ -1,6 +1,6 @@
 {
-"geometry_file": "geometry/atlas-emec-athena.gdml",
-"event_file": "primaries/first_event.root",
+"geometry_file": "geometry/atlas-full-run4_LArEndcapNeg0x6cd79ea0.gdml",
+"event_file": "primaries/primaries_LArEndcapNeg0x6cd79ea0.root",
 "physics_options": {
     "coulomb_scattering": false,
     "eloss_fluctuation": true,
