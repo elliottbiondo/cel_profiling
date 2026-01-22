@@ -13,6 +13,6 @@
 "initializer_capacity": 1e7,
 "num_tracks_slots": 262144,
 "max_steps": 1e8,
-"use_device" : false,
+"use_device" : true,
 "merge_events" : true
 }
