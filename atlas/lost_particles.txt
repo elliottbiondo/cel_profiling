@@ -2,7 +2,8 @@ Running 193,150 EM primaries Using the default random number seed, 318 out of
 70,704,365 calls to complex intersect result in failures. In other words the
 fail rate is 1 in 607 w.r.t. primaries, but only 1 in 2.2e5 w.r.t. complex
 intersect calls. All of the failures occured far away from the EMEC, over the
-range z=[-22.85, 25.7].
+range z=[-22.85, 25.7]. It is noted that this results on the CPU. On the GPU,
+there are 416 lost particles for the same run.
 
 The position and directions of the 318 particles are below:
 
