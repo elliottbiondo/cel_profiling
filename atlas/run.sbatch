@@ -22,15 +22,12 @@ export SYSTEM_NAME=hudson
 #export CELER_LOG_LOCAL=debug 
 export G4_GEO_OPTIMIZE=0
 export CMAKE_PREFIX_PATH=/scratch/veb/build/celeritas-reldeb-orange/
+export PATH=$PATH:/scratch/veb/build/celeritas-reldeb-orange/bin/
 
 source /auto/projects/celeritas/spack/share/spack/setup-env.sh
 load_system_env hudson
 
-/scratch/veb/build/celeritas-reldeb-orange/bin/celer-sim run.json
-
-#nsys profile -f true \
-#  --trace=cuda,nvtx \
-#  --sample=none \
-#  -o celer-sim \
-#  /scratch/veb/build/celeritas-reldeb-orange/bin/celer-sim run.json
+# Run
+# celer-sim run.json
+nsys profile -f true --trace=cuda,nvtx --sample=none -o celer-sim celer-sim run.json
 
