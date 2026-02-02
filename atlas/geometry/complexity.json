@@ -1,0 +1,42 @@
+{
+  "scalars": {
+    "num_univ_levels": 5,
+    "max_faces": 24537,
+    "max_intersections": 556,
+    "max_csg_levels": 1,
+    "tol": {
+      "rel": 1.5E-8,
+      "abs": 1.5E-8
+    }
+  },
+  "sizes": {
+    "connectivity_records": 201732,
+    "daughters": 39303,
+    "fast_real3s": 0,
+    "local_surface_ids": 111248,
+    "local_volume_ids": 54324,
+    "logic_ints": 19862,
+    "obz_records": 18878,
+    "real_ids": 201732,
+    "reals": 1197941,
+    "rect_arrays": 0,
+    "simple_units": 159,
+    "surface_types": 201732,
+    "transforms": 77056,
+    "univ_indices": 159,
+    "univ_types": 159,
+    "volume_ids": 72827,
+    "volume_instance_ids": 72827,
+    "volume_records": 72827,
+    "bih": {
+      "bboxes": 72827,
+      "inner_nodes": 71477,
+      "leaf_nodes": 71636,
+      "local_volume_ids": 72563
+    },
+    "universe_indexer": {
+      "surfaces": 160,
+      "volumes": 160
+    }
+  }
+}
