@@ -11,7 +11,7 @@
     "msc_step_algorithm": "minimal"
 },
 "field_type": "uniform",
-"field": [0.0, 0.0, 3.6],
+"field": [0.0, 0.0, 4.0],
 "initializer_capacity": 1e7,
 "num_tracks_slots": 262144,
 "max_steps": 1e8,
