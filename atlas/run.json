@@ -16,5 +16,6 @@
 "num_tracks_slots": 262144,
 "max_steps": 1e8,
 "use_device" : true,
-"merge_events" : true
+"merge_events" : true,
+"action_times" : true
 }
