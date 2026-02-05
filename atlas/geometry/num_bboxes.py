@@ -6,7 +6,8 @@ mpl.rcParams["font.family"] = "serif"
 mpl.rcParams["font.serif"] = ["Times New Roman", "Times", "Nimbus Roman", "DejaVu Serif"]
 mpl.rcParams["mathtext.fontset"] = "stix"
 
-# This is the number of *finite* bounding boxes 
+# This is the number of *finite* bounding boxes. This is found by simply
+# printing out "indices" in BIHBuilder::operator()
 num_bboxes = [
 534, 1, 416, 17, 16, 16, 6, 9, 9, 64, 3, 15, 1536, 1536, 1536, 1536, 1536,
 1536, 1536, 1536, 1536, 1536, 1536, 1536, 1536, 1536, 1536, 1536, 1536, 1536,
@@ -17,6 +18,16 @@ num_bboxes = [
 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 9, 9, 8, 8, 8, 1, 1, 2, 2, 2, 2, 2, 2, 2,
 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 30, 7, 7]
 
+# This is the number of *ubfinite* bounding boxes. This is found by simply
+# printing out "inf_vol_ids" in BIHBuilder::operator()
+num_inf_bboxes =
+[15, 1, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 1, 1, 8, 8, 1, 1, 1, 1, 1, 1, 1, 8, 8, 1, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 96, 32, 32,
+96, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+1, 0, 0, 0]
 
 fig, ax = plt.subplots()
 
