@@ -55,13 +55,13 @@ def plot_track_slots():
                         framealpha=1, edgecolor="inherit")
     legend.get_frame().set_linewidth(mpl.rcParams["axes.linewidth"])
     
-    plt.savefig("track_slots.pdf", bbox_inches="tight")
+    plt.savefig("plots/track_slots.pdf", bbox_inches="tight")
+
 
 def plot_max_leaf_size():
     plt.gca().clear()
 
     trials = [int(x) for x in np.logspace(0, 4.5, 10)]
-    trials = trials[:-1]
     
     along_neutral = []
     along_msc = []
@@ -83,16 +83,54 @@ def plot_max_leaf_size():
     plt.plot(trials, along_neutral, label="along-step-neutral")
     plt.plot(trials, along_msc, label="along-step-uniform-msc")
     plt.ylabel("run time (s)")
-    plt.xlabel("max_leaf_size")
+    plt.xlabel("maximum leaf size")
     plt.xscale("log", base=10)
     plt.ylim([0, 120])
+    plt.title("num_track_slots = $2^{18}$")
 
     legend = plt.legend(loc="best", frameon=True, fancybox=False,
                         framealpha=1, edgecolor="inherit")
     legend.get_frame().set_linewidth(mpl.rcParams["axes.linewidth"])
     
-    plt.savefig("max_leaf_size.pdf", bbox_inches="tight")
+    plt.savefig("plots/max_leaf_size.pdf", bbox_inches="tight")
+
+
+def plot_depth_limit():
+    plt.gca().clear()
+
+    trials = [int(x) for x in range(1, 11)]
+    
+    along_neutral = []
+    along_msc = []
+    total = []
+    
+    for trial in trials:
+        reader = JsonReader("depth_limit/stdout_{}.json".format(trial))
+        along_neutral.append(reader.get("result/runner/time/actions/along-step-neutral"))
+        along_msc.append(reader.get("result/runner/time/actions/along-step-uniform-msc"))
+        total.append(reader.get("result/runner/time/total"))
+    
+    print(trials)
+    print(along_neutral)
+    print(along_msc)
+    print(total)
+    print()
+    
+    plt.plot(trials, total, label="total")
+    plt.plot(trials, along_neutral, label="along-step-neutral")
+    plt.plot(trials, along_msc, label="along-step-uniform-msc")
+    plt.ylabel("run time (s)")
+    plt.xlabel("depth limit")
+    plt.ylim([0, 120])
+    plt.title("num_track_slots = $2^{18}$, max_leaf_size = 100, depth w/o limit = 10")
+
+    legend = plt.legend(loc="best", frameon=True, fancybox=False,
+                        framealpha=1, edgecolor="inherit")
+    legend.get_frame().set_linewidth(mpl.rcParams["axes.linewidth"])
+    
+    plt.savefig("plots/depth_limit.pdf", bbox_inches="tight")
 
 
 plot_track_slots()
 plot_max_leaf_size()
+plot_depth_limit()
