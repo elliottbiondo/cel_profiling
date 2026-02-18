@@ -16,13 +16,11 @@ def make_dot(universe_id, tree):
             axis = node[1]
             left_plane = float(node[3][0])
             right_plane = float(node[3][1])
-            label = "inner\\naxis={}\\nplanes=({:.4f}, {:.4f})".format(
-                axis, left_plane, right_plane
-            )
+            label = "{}=({:.4f}, {:.4f})".format(axis, left_plane, right_plane)
             lines.append('  n{} [label="{}"];'.format(i, label))
         else:
             vols = ", ".join("{}".format(v) for v in node[1])
-            lines.append('  n{} [label="leaf\\nvols=[{}]"];'.format(i, vols))
+            lines.append('  n{} [label="vols=[{}]"];'.format(i, vols))
 
     for i, node in enumerate(tree):
         if node[0] == "i":
