@@ -3,6 +3,7 @@ import numpy as np
 import subprocess
 import shutil
 import sys
+import json
 
 ###############################################################################
 
@@ -90,7 +91,7 @@ def sweep_part_cands(node):
 
 node = sys.argv[1]
 
-#sweep_track_slot(node)
-#sweep_max_leaf_size(node)
-#sweep_depth_limit(node)
+sweep_track_slots(node)
+sweep_max_leaf_size(node)
+sweep_depth_limit(node)
 sweep_part_cands(node)

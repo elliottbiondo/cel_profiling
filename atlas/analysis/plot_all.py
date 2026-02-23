@@ -33,7 +33,7 @@ def plot_track_slots():
     total = []
     
     for trial in trials:
-        reader = JsonReader("track_slots//stdout_{}.json".format(trial))
+        reader = JsonReader("hudson/track_slots/stdout_{}.json".format(trial))
         along_neutral.append(reader.get("result/runner/time/actions/along-step-neutral"))
         along_msc.append(reader.get("result/runner/time/actions/along-step-uniform-msc"))
         total.append(reader.get("result/runner/time/total"))
@@ -68,7 +68,7 @@ def plot_max_leaf_size():
     total = []
     
     for trial in trials:
-        reader = JsonReader("max_leaf_size/stdout_{}.json".format(trial))
+        reader = JsonReader("hudson/max_leaf_size/stdout_{}.json".format(trial))
         along_neutral.append(reader.get("result/runner/time/actions/along-step-neutral"))
         along_msc.append(reader.get("result/runner/time/actions/along-step-uniform-msc"))
         total.append(reader.get("result/runner/time/total"))
@@ -105,7 +105,7 @@ def plot_depth_limit():
     total = []
     
     for trial in trials:
-        reader = JsonReader("depth_limit/stdout_{}.json".format(trial))
+        reader = JsonReader("hudson/depth_limit/stdout_{}.json".format(trial))
         along_neutral.append(reader.get("result/runner/time/actions/along-step-neutral"))
         along_msc.append(reader.get("result/runner/time/actions/along-step-uniform-msc"))
         total.append(reader.get("result/runner/time/total"))
@@ -140,7 +140,7 @@ def plot_part_cands():
     total = []
     
     for trial in trials:
-        reader = JsonReader("part_cands/stdout_{}.json".format(trial))
+        reader = JsonReader("hudson/part_cands/stdout_{}.json".format(trial))
         along_neutral.append(reader.get("result/runner/time/actions/along-step-neutral"))
         along_msc.append(reader.get("result/runner/time/actions/along-step-uniform-msc"))
         total.append(reader.get("result/runner/time/total"))
@@ -162,7 +162,7 @@ def plot_part_cands():
                         framealpha=1, edgecolor="inherit")
     legend.get_frame().set_linewidth(mpl.rcParams["axes.linewidth"])
     
-    plt.savefig("plots/track_slots.pdf", bbox_inches="tight")
+    plt.savefig("plots/part_cands.pdf", bbox_inches="tight")
 
 
 
