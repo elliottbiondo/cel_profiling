@@ -50,7 +50,7 @@ def plot_track_slots():
     plt.ylabel("run time (s)")
     plt.xlabel("number of track slots")
     plt.xscale("log", base=2)
-    plt.ylim([0, 120])
+    #plt.ylim([0, 120])
     legend = plt.legend(loc="best", frameon=True, fancybox=False,
                         framealpha=1, edgecolor="inherit")
     legend.get_frame().set_linewidth(mpl.rcParams["axes.linewidth"])
@@ -85,7 +85,7 @@ def plot_max_leaf_size():
     plt.ylabel("run time (s)")
     plt.xlabel("maximum leaf size")
     plt.xscale("log", base=10)
-    plt.ylim([0, 120])
+    #plt.ylim([0, 120])
     plt.title("num_track_slots = $2^{18}$")
 
     legend = plt.legend(loc="best", frameon=True, fancybox=False,
@@ -121,7 +121,7 @@ def plot_depth_limit():
     plt.plot(trials, along_msc, label="along-step-uniform-msc")
     plt.ylabel("run time (s)")
     plt.xlabel("depth limit")
-    plt.ylim([0, 120])
+    #plt.ylim([0, 120])
     plt.title("num_track_slots = $2^{18}$, max_leaf_size = 100, depth w/o limit = 10")
 
     legend = plt.legend(loc="best", frameon=True, fancybox=False,
@@ -157,14 +157,12 @@ def plot_part_cands():
     plt.ylabel("run time (s)")
     plt.xlabel("number of partition candidates")
     plt.xscale("log", base=3)
-    plt.ylim([0, 120])
+    #plt.ylim([0, 120])
     legend = plt.legend(loc="best", frameon=True, fancybox=False,
                         framealpha=1, edgecolor="inherit")
     legend.get_frame().set_linewidth(mpl.rcParams["axes.linewidth"])
     
     plt.savefig("plots/part_cands.pdf", bbox_inches="tight")
-
-
 
 
 plot_track_slots()
