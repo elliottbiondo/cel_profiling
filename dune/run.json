@@ -21,7 +21,7 @@
     },
     "generator": {
       "_type": "primary",
-      "primaries": 16777216,
+      "primaries": 1073741824,
       "angle": {
         "_type": "isotropic"
       },
