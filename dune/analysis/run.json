@@ -17,7 +17,7 @@
     "capacity": {
       "generators": 1,
       "primaries": 1,
-      "tracks": 16777216
+      "tracks": 67108864
     },
     "generator": {
       "_type": "primary",

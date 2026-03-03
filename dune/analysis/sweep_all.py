@@ -7,7 +7,7 @@ import json
 
 ###############################################################################
 
-def sweep_track_slots(node):
+def sweep_track_slots(prefix):
 
     def write_temp_with_track_slots(num_track_slots):
         with open("run.json", "r", encoding="utf-8") as f:
@@ -20,7 +20,7 @@ def sweep_track_slots(node):
 
     trials = [2**x for x in range(15, 30)]
     
-    outdir = "{}/track_slots".format(node)
+    outdir = "{}/track_slots".format(prefix)
     shutil.rmtree(outdir, ignore_errors=True)
     os.makedirs(outdir)
     
@@ -35,11 +35,11 @@ def sweep_track_slots(node):
 
 ###############################################################################
 
-def sweep_max_leaf_size(node):
+def sweep_max_leaf_size(prefix):
 
     trials = [int(x) for x in np.logspace(0, 4.5, 10)]
     
-    outdir = "{}/max_leaf_size".format(node)
+    outdir = "{}/max_leaf_size".format(prefix)
     shutil.rmtree(outdir, ignore_errors=True)
     os.makedirs(outdir)
     
@@ -52,10 +52,10 @@ def sweep_max_leaf_size(node):
 
 ################################################################################
 #
-#def sweep_depth_limit(node):
+#def sweep_depth_limit(prefix):
 #    trials = range(1, 11)
 #    
-#    outdir = "{}/depth_limit".format(node)
+#    outdir = "{}/depth_limit".format(prefix)
 #    shutil.rmtree(outdir, ignore_errors=True)
 #    os.makedirs(outdir)
 #    
@@ -69,10 +69,10 @@ def sweep_max_leaf_size(node):
 #
 ################################################################################
 #
-#def sweep_part_cands(node):
+#def sweep_part_cands(prefix):
 #    trials = [3**x for x in range(0, 8)]
 #    
-#    outdir = "{}/part_cands".format(node)
+#    outdir = "{}/part_cands".format(prefix)
 #    shutil.rmtree(outdir, ignore_errors=True)
 #    os.makedirs(outdir)
 #    
@@ -89,9 +89,9 @@ def sweep_max_leaf_size(node):
 # DRIVER
 ###############################################################################s
 
-node = sys.argv[1]
+prefix = sys.argv[1]
 
-#sweep_track_slots(node)
-sweep_max_leaf_size(node)
-#sweep_depth_limit(node)
-#sweep_part_cands(node)
+sweep_track_slots(prefix)
+#sweep_max_leaf_size(prefix)
+#sweep_depth_limit(prefix)
+#sweep_part_cands(prefix)

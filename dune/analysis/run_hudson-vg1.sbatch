@@ -19,10 +19,10 @@ load_system_env() {
 
 export SYSTEM_NAME=hudson
 export G4_GEO_OPTIMIZE=0
-export CMAKE_PREFIX_PATH=/scratch/veb/build/celeritas-reldeb-orange/
-export PATH=$PATH:/scratch/veb/build/celeritas-reldeb-orange/bin/
+export CMAKE_PREFIX_PATH=/scratch/veb/build/celeritas-release-orange/
+export PATH=$PATH:/scratch/veb/build/celeritas-release/bin/
 
 source /auto/projects/celeritas/spack/share/spack/setup-env.sh
 load_system_env hudson
 
-python sweep_all.py hudson
+python sweep_all.py hudson-vg1
