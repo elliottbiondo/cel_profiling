@@ -5,18 +5,19 @@ import shutil
 import sys
 import json
 
+def write_temp_with_track_slots(num_track_slots):
+    with open("run.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+        data["problem"]["capacity"]["tracks"] = num_track_slots
+
+    with open("temp.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+        f.write("\n")
+
 ###############################################################################
 
 def sweep_track_slots(prefix):
 
-    def write_temp_with_track_slots(num_track_slots):
-        with open("run.json", "r", encoding="utf-8") as f:
-            data = json.load(f)
-            data["problem"]["capacity"]["tracks"] = num_track_slots
-    
-        with open("temp.json", "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2)
-            f.write("\n")
 
     trials = [2**x for x in range(15, 30)]
     
@@ -35,7 +36,7 @@ def sweep_track_slots(prefix):
 
 ###############################################################################
 
-def sweep_max_leaf_size(prefix):
+def sweep_max_leaf_size(prefix, track_slots):
 
     trials = [int(x) for x in np.logspace(0, 4.5, 10)]
     
@@ -44,11 +45,16 @@ def sweep_max_leaf_size(prefix):
     os.makedirs(outdir)
     
     for trial in trials:
+
+        write_temp_with_track_slots(track_slots)
+
         env = os.environ.copy()
         env["ORANGE_BIH_MAX_LEAF_SIZE"] = str(trial)
     
         with open(f"{outdir}/stdout_{trial}.json", "w") as f_out, open(os.devnull, "w") as f_err:
-            subprocess.run(["celer-optical", "run.json"], env=env, stdout=f_out, stderr=f_err, check=False)
+            subprocess.run(["celer-optical", "temp.json"], env=env, stdout=f_out, stderr=f_err, check=False)
+
+        os.remove("temp.json")
 
 ################################################################################
 #
@@ -91,7 +97,11 @@ def sweep_max_leaf_size(prefix):
 
 prefix = sys.argv[1]
 
-sweep_track_slots(prefix)
-#sweep_max_leaf_size(prefix)
+hudson_track_slots = 67108864
+
+
+#sweep_track_slots(prefix)
+sweep_max_leaf_size(prefix, hudson_track_slots)
+
 #sweep_depth_limit(prefix)
 #sweep_part_cands(prefix)

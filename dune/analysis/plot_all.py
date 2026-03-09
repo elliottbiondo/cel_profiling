@@ -150,8 +150,7 @@ def plot_part_cands(prefix):
 
 
 prefix = sys.argv[1]
-
 plot_track_slots(prefix)
-#plot_max_leaf_size()
-#plot_depth_limit()
-#plot_part_cands()
+plot_max_leaf_size(prefix)
+#plot_depth_limit(prefix)
+#plot_part_cands(prefix)
