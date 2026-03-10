@@ -2,6 +2,7 @@ import json
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+import sys
 
 # Times font everywhere
 mpl.rcParams["font.family"] = "serif"
@@ -23,7 +24,7 @@ class JsonReader(object):
         return float(cur)
 
 
-def plot_track_slots():
+def plot_track_slots(prefix):
     plt.gca().clear()
 
     trials = [2**x for x in range(15, 21)]
@@ -33,7 +34,7 @@ def plot_track_slots():
     total = []
     
     for trial in trials:
-        reader = JsonReader("hudson/track_slots/stdout_{}.json".format(trial))
+        reader = JsonReader("{}/track_slots/stdout_{}.json".format(prefix, trial))
         along_neutral.append(reader.get("result/runner/time/actions/along-step-neutral"))
         along_msc.append(reader.get("result/runner/time/actions/along-step-uniform-msc"))
         total.append(reader.get("result/runner/time/total"))
@@ -58,7 +59,7 @@ def plot_track_slots():
     plt.savefig("plots/track_slots.pdf", bbox_inches="tight")
 
 
-def plot_max_leaf_size():
+def plot_max_leaf_size(prefix):
     plt.gca().clear()
 
     trials = [int(x) for x in np.logspace(0, 4.5, 10)]
@@ -68,7 +69,7 @@ def plot_max_leaf_size():
     total = []
     
     for trial in trials:
-        reader = JsonReader("hudson/max_leaf_size/stdout_{}.json".format(trial))
+        reader = JsonReader("{}/max_leaf_size/stdout_{}.json".format(prefix, trial))
         along_neutral.append(reader.get("result/runner/time/actions/along-step-neutral"))
         along_msc.append(reader.get("result/runner/time/actions/along-step-uniform-msc"))
         total.append(reader.get("result/runner/time/total"))
@@ -95,7 +96,7 @@ def plot_max_leaf_size():
     plt.savefig("plots/max_leaf_size.pdf", bbox_inches="tight")
 
 
-def plot_depth_limit():
+def plot_depth_limit(prefix):
     plt.gca().clear()
 
     trials = [int(x) for x in range(1, 11)]
@@ -105,7 +106,7 @@ def plot_depth_limit():
     total = []
     
     for trial in trials:
-        reader = JsonReader("hudson/depth_limit/stdout_{}.json".format(trial))
+        reader = JsonReader("{}/depth_limit/stdout_{}.json".format(prefix, trial))
         along_neutral.append(reader.get("result/runner/time/actions/along-step-neutral"))
         along_msc.append(reader.get("result/runner/time/actions/along-step-uniform-msc"))
         total.append(reader.get("result/runner/time/total"))
@@ -130,7 +131,7 @@ def plot_depth_limit():
     
     plt.savefig("plots/depth_limit.pdf", bbox_inches="tight")
 
-def plot_part_cands():
+def plot_part_cands(prefix):
     plt.gca().clear()
 
     trials = [3**x for x in range(0, 8)]
@@ -140,7 +141,7 @@ def plot_part_cands():
     total = []
     
     for trial in trials:
-        reader = JsonReader("hudson/part_cands/stdout_{}.json".format(trial))
+        reader = JsonReader("{}/part_cands/stdout_{}.json".format(prefix, trial))
         along_neutral.append(reader.get("result/runner/time/actions/along-step-neutral"))
         along_msc.append(reader.get("result/runner/time/actions/along-step-uniform-msc"))
         total.append(reader.get("result/runner/time/total"))
@@ -164,8 +165,8 @@ def plot_part_cands():
     
     plt.savefig("plots/part_cands.pdf", bbox_inches="tight")
 
-
-plot_track_slots()
-plot_max_leaf_size()
-plot_depth_limit()
-plot_part_cands()
+prefix = sys.argv[1]
+plot_track_slots(prefix)
+#plot_max_leaf_size(prefix)
+#plot_depth_limit(prefix)
+#plot_part_cands(prefix)
