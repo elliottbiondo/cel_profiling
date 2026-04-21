@@ -17,5 +17,6 @@
 "max_steps": 1e8,
 "use_device" : true,
 "merge_events" : true,
-"action_times" : true
+"action_times" : true,
+"secondary_stack_factor" : 2
 }
