@@ -1,0 +1,42 @@
+{
+  "geant_setup": {
+    "absorption": true,
+    "boundary": {
+      "enable": true
+    },
+    "mie_scattering": true,
+    "rayleigh_scattering": true,
+    "absorption": true,
+    "wavelength_shifting": null,
+    "wavelength_shifting2": null
+  },
+  "problem": {
+    "capacity": {
+      "generators": 1,
+      "primaries": 1,
+      "tracks": 2097152
+    },
+    "limits": {
+      "steps": null,
+      "step_iters": null
+    },
+    "generator": {
+      "_type": "offload",
+      "distribution_file": "dune10k-1x2x6-evt5-offload.jsonl"
+    },
+    "model": {
+      "geometry": "geometry/dune-zwires.gdml"
+    },
+    "output_file": "offload-gpu.out.json",
+    "seed": 12345,
+    "timers": {
+      "action": true,
+      "step": true
+    },
+    "step": null
+  },
+  "system": {
+    "device": {},
+    "environment": {}
+  }
+}
