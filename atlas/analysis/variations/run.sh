@@ -1,4 +1,4 @@
-CUDA_VISIBLE_DEVICES=1 ORANGE_BIH_MAX_LEAF_SIZE=1 /scratch/veb/build/celeritas-release-orange/bin/celer-sim inp-orange.json 1> out-orange.json
+CUDA_VISIBLE_DEVICES=1 ORANGE_BIH_MAX_LEAF_SIZE=1 ORANGE_BIH_PART_CANDS=3 /scratch/veb/build/celeritas-release-orange/bin/celer-sim inp-orange.json 1> out-orange.json
 echo "ORANGE"
 jq ".result.runner.time.total" out-orange.json
 jq '.result.runner.time.actions.["along-step-uniform-msc"]' out-orange.json
