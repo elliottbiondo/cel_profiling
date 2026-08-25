@@ -1,0 +1,52 @@
+{
+  "geant_setup": {
+    "absorption": true,
+    "boundary": {
+      "enable": true
+    },
+    "mie_scattering": true,
+    "rayleigh_scattering": true,
+    "absorption": true,
+    "wavelength_shifting": null,
+    "wavelength_shifting2": null
+  },
+  "problem": {
+    "capacity": {
+      "generators": 1,
+      "primaries": 1,
+      "tracks": 2097152
+    },
+    "limits": {
+      "steps": null,
+      "step_iters": null
+    },
+    "generator": {
+      "_type": "primary",
+      "primaries": 1134043000,
+      "angle": {
+        "_type": "isotropic"
+      },
+      "energy": {
+        "_type": "delta",
+        "value": 1e-5
+      },
+      "shape": {
+        "_type": "delta",
+        "value": [0, 0, 0]
+      }
+    },
+    "model": {
+      "geometry": "/home/veb/cel_profiling/notional_dune/geometry/notional_dune_GEONUM.gdml"
+    },
+    "seed": 12345,
+    "timers": {
+      "action": true,
+      "step": true
+    },
+    "step": null
+  },
+  "system": {
+    "device": {},
+    "environment": {}
+  }
+}

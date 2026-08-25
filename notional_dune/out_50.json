@@ -1,0 +1,1 @@
+{"result":{"exception":{"condition":"Malloc(&ptr, bytes)","file":"/home/veb/opt/celeritas/celeritas/src/corecel/data/DeviceAllocation.cc","line":37,"type":"RuntimeError","what":"out of memory","which":"CUDA"}}}
