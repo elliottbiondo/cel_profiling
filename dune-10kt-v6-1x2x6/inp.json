@@ -1,0 +1,59 @@
+{
+  "geant_setup": {
+    "absorption": true,
+    "boundary": {
+      "enable": true
+    },
+    "mie_scattering": true,
+    "rayleigh_scattering": true,
+    "absorption": true,
+    "wavelength_shifting": null,
+    "wavelength_shifting2": null
+  },
+  "problem": {
+    "capacity": {
+      "generators": 1,
+      "primaries": 1,
+      "tracks": 2097152
+    },
+    "limits": {
+      "steps": 1000,
+      "step_iters": 1000000
+    },
+    "generator": {
+      "_type": "primary",
+      "primaries": 1134043000,
+      "shape": {
+        "_type": "uniform_box",
+        "lower": [5.0, -599.0, 0.0],
+        "upper": [362.0, 599.0, 1392.0]
+      },
+      "angle": {
+        "_type": "isotropic"
+      },
+      "energy": {
+        "_type": "truncated",
+        "distribution": {
+          "_type": "normal",
+          "mean": 9.01e-6,
+          "stddev": 1.2866666667e-6
+        },
+        "lower": 7.45e-6,
+        "upper": 11.57e-6
+      }
+    },
+    "model": {
+      "geometry": "dune10kt_v6_refactored_1x2x6-optical.gdml"
+    },
+    "seed": 12345,
+    "timers": {
+      "action": true,
+      "step": true
+    },
+    "step": null
+  },
+  "system": {
+    "device": {},
+    "environment": {}
+  }
+}
